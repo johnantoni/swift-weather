@@ -29,19 +29,12 @@ class ViewController: UIViewController, UITableViewDataSource, NSURLConnectionDa
         self.fetchController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchController.performFetch(nil)
 
-
-//        let jsonString = "{ \"longitude\": 123.45, \"latitude\": -34.56 }"
-//        if let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-//            handleResponseData(data)
-//        }
-
         self.sendRequest()
     }
 
     func sendRequest() {
-        if let url = NSURL(string: "https://api.forecast.io/forecast/<api key>/43.65,-79.37") {
+        if let url = NSURL(string: "https://api.forecast.io/forecast/e0ad861e183017092cec7fb188c2d787/43.65,-79.37") {
             var request = NSMutableURLRequest(URL: url)
-            // request.HTTPMethod = "POST"
             var connection = NSURLConnection(request: request, delegate: self)
         }
     }
@@ -51,9 +44,11 @@ class ViewController: UIViewController, UITableViewDataSource, NSURLConnectionDa
         var error: NSError? = nil
         var json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error)
         if let dictionary = json as? NSDictionary {
-            let latitude = dictionary["latitude"] as? Float
-            let longitude = dictionary["longitude"] as? Float
-            println("Lat: \(latitude), Long: \(longitude)")
+            var importer = DayImporter(json: dictionary)
+            var minutes = importer.getMinutelyData()
+            for minute in minutes {
+                println("Time: \(minute.time), POP: \(minute.pop)%")
+            }
         }
         else if error != nil {
             println("Failed to decode JSON: \(error!)")

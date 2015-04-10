@@ -20,19 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let context = self.managedObjectContext!
 
-        var day = NSEntityDescription.insertNewObjectForEntityForName("Day", inManagedObjectContext: context) as Day
+        var day = NSEntityDescription.insertNewObjectForEntityForName("Day", inManagedObjectContext: context) as! Day
         day.weekday = "Thursday"
         day.date = NSDate().timeIntervalSinceReferenceDate
         day.high = 18.0
         day.low = 6.0
 
-        let day2 = NSEntityDescription.insertNewObjectForEntityForName("Day", inManagedObjectContext: context) as Day
+        let day2 = NSEntityDescription.insertNewObjectForEntityForName("Day", inManagedObjectContext: context) as! Day
         day2.weekday = "Friday"
         day2.date = NSDate().timeIntervalSinceReferenceDate + 60 * 60 * 24
         day2.high = 16.0
         day2.low = 0.0
 
-        var hour = NSEntityDescription.insertNewObjectForEntityForName("Hour", inManagedObjectContext: context) as Hour
+        var hour = NSEntityDescription.insertNewObjectForEntityForName("Hour", inManagedObjectContext: context) as! Hour
         hour.condition = "Sunny"
         hour.temperature = 22.0
         day.addHour(hour)
@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "net.goold.Weather" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {

@@ -12,10 +12,6 @@ import CoreData
 @objc(Day)
 class Day: NSManagedObject {
 
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
-    }
-
     @NSManaged var weekday: String
     @NSManaged var date: NSTimeInterval
     @NSManaged var high: Float

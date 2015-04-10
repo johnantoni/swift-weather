@@ -24,7 +24,7 @@ class DayViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        let entity = self.model.entitiesByName["Day"] as NSEntityDescription
+        let entity = self.model.entitiesByName["Day"] as! NSEntityDescription
         self.day = Day(entity: entity, insertIntoManagedObjectContext: context)
         self.day.weekday = "Thursday"
         self.day.date = NSDate().timeIntervalSinceReferenceDate + 60 * 60 * 24 * 2
