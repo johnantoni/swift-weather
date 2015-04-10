@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52C320451AD7564D0073F05A /* PodfileImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodfileImporter.h; sourceTree = "<group>"; };
 		5F9B675D9BB1592618C0FD7F /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62750BF1C3EDE784006165F1 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		E540DEAEEC509914DEC82717 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				EA21876C1AC4E3FD004C44F3 /* DayViewController.swift */,
 				EA377E221AD73BD100127B67 /* DayImporter.swift */,
 				EA377E241AD73C6200127B67 /* MinutelyData.swift */,
+				52C320451AD7564D0073F05A /* PodfileImporter.h */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
